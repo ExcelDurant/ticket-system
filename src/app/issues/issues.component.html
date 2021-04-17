@@ -1,0 +1,29 @@
+<section class="complain-sec">
+    <div class="formgroup">
+        <label for="title">title of complain: </label>
+        <input type="text" placeholder="title" class="issue-title" name="title" #issueTitle>
+    </div>
+    <div class="formgroup">
+        <label for="description">details of complain: </label>
+        <input type="text" placeholder="description........." class="issue-desc" name="description" #issueDescription>
+    </div>
+    <button class="submit" (click)="addIssue(issueTitle.value, issueDescription.value)">complain</button>
+</section>
+
+<section class="satisfaction-sec">
+    <h3 class="satisfaction">satisfaction rate: {{ getSatisfaction()}}</h3>
+</section>
+
+
+<h1 class="main-title">issues</h1>
+<div class="issues-container">
+    <app-single-issue *ngFor="let issue of issues" [issue]="issue" (issueEvent)="solveIssue($event)"></app-single-issue>
+</div>
+
+<section class="solved-sec">
+    <h2 class="solved">solved issues</h2>
+    <div class="solved-issues-container">
+        <app-solved-issue *ngFor="let solved of solvedIssues" [solved]="solved" (closingEvent)="closeIssue($event)">
+        </app-solved-issue>
+    </div>
+</section>

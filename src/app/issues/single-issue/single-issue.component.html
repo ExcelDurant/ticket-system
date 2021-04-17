@@ -1,0 +1,9 @@
+<div class="issue-container">
+    <h4 class="iss-num">issue {{ issue.id }}</h4>
+    <h2 class="iss-title">{{ issue.title }}</h2>
+    <p class="iss-desc">
+        {{ issue.description }}
+    </p>
+    <p class="iss-status">unsolved</p>
+    <button class="solve-btn" (click)="solveIssue(issue)">solve issue</button>
+</div>
